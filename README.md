@@ -1,24 +1,61 @@
-# README
+#テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_ruby  | string | null: false |
+| first_name_ruby | string | null: false |
+| birthday        | date   | null: false |
 
-* Ruby version
+### association
+- has_many :items
+- has_many :purchases
 
-* System dependencies
+## purchases テーブル
+| Column | Type        | Options                        |
+| ------ | ----------- | ------------------------------ |
+| item   | references  | null: false, foreign_key: true |
+| user   | references  | null: false, foreign_key: true |
 
-* Configuration
+### association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
-* Database creation
+## items テーブル
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| name           | string     | null: false                    |
+| explanation    | text       | null: false                    |
+| category       | integer    | null: false                    |
+| condition      | integer    | null: false                    |
+| delivary_fee   | integer    | null: false                    |
+| exhibitor_area | integer    | null: false                    |
+| delivary_days  | integer    | null: false                    |
+| price          | integer    | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
-* Database initialization
+### association
+- has_one: purchase
+- belongs_to :user
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## addresses テーブル
+| Column        | Type       | Options                        |
+| ------------- | -----------| ------------------------------ |
+| postal_code   | string     | null: false                    |
+| state         | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building_name | string     |                                |
+| phone_number  | string     | null: false                    |
+| purchase      | references | null: false, foreign_key: true |
 
-* Deployment instructions
-
-* ...
+### association
+- belongs_to :purchase
