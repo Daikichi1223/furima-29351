@@ -42,7 +42,7 @@
 | user           | references | null: false, foreign_key: true |
 
 ### association
-- has_one: purchase
+- has_one :purchase
 - belongs_to :user
 
 
