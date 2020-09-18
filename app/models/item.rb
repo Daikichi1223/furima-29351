@@ -20,10 +20,6 @@ class Item < ApplicationRecord
 
   validates :price, format: {with: /\A[0-9]+\z/, message: "は半角数字で入力してください"}
 
-  validates :price, numericality: {
-    greater_than_or_equal_to: 300,
-    less_than_or_equal_to: 9999999,
-    message: "は300円~9,999,999円の範囲で入力してください"
-  }
+  validates :price, inclusion: { in: 300..9999999, message: "は300円~9,999,999円の範囲で入力してください"}
 
 end
