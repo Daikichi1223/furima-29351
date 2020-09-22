@@ -1,10 +1,20 @@
 ja:
- activerecord:
-   attributes:
-     user:
-       nickname: ニックネーム
-       birthday: 誕生日
-       last_name: 名字
-       first_name: 名前
-       last_name_ruby: 名字カナ
-       first_name_ruby: 名前カナ
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        birthday: 誕生日
+        last_name: 名字
+        first_name: 名前
+        last_name_ruby: 名字カナ
+        first_name_ruby: 名前カナ
+      item:
+        image: 商品画像
+        name: 商品名
+        explanation: 商品の説明
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        delivary_fee_id: 配送料の負担
+        exhibitor_area_id: 発送元の地域
+        delivary_day_id: 発送までの日数
+        price: 出品価格

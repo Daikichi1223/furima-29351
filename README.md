@@ -37,12 +37,12 @@
 | condition      | integer    | null: false                    |
 | delivary_fee   | integer    | null: false                    |
 | exhibitor_area | integer    | null: false                    |
-| delivary_days  | integer    | null: false                    |
+| delivary_day   | integer    | null: false                    |
 | price          | integer    | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### association
-- has_one: purchase
+- has_one :purchase
 - belongs_to :user
 
 
