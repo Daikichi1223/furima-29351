@@ -28,8 +28,9 @@ class Item < ApplicationRecord
   validates :delivary_day_id, numericality: { message: "を選択してください" }
   end
 
-  validates :price, presence: true
-  validates :price, format: {with: /\A[0-9]+\z/, message: "は半角数字で入力してください"}
-  validates :price, inclusion: { in: 300..9999999, message: "は300円~9,999,999円の範囲で入力してください"}
+  validates :name, length: { maximum: 40 }
+  validates :explanation, length: { maximum: 1000 }
+  validates :price, presence: true, inclusion: { in: 300..9999999, message: "は300円~9,999,999円の範囲で入力してください"}
+  validates :price, numericality: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
 
 end
