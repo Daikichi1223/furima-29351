@@ -3,6 +3,4 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :users
   resources :items, only: [:new, :create]
-  post 'items/new', to: 'items#create'
-  get 'items', to: 'items#new'
 end
