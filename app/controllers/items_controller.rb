@@ -37,7 +37,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     if @item.destroy
       redirect_to root_path
     else
-      redirect_to action: :show
+      render :show
     end
   end
 
