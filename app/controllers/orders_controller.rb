@@ -8,5 +8,6 @@ before_action :authenticate_user!
   end
 
   def create
+    binding.pry
   end
 end
