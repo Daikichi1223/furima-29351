@@ -32,11 +32,11 @@ before_action :authenticate_user!
 
   def pay_item
     @item = Item.find(params[:item_id])
-    Payjp.api_key = "sk_test_66c9146405da51aa5744d48e"  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
-      card: order_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類(日本円)
+      card: order_params[:token],    
+      currency:'jpy'                 
     )
   end
 
