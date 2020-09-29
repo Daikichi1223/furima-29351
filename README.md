@@ -49,12 +49,12 @@
 ## addresses テーブル
 | Column          | Type       | Options                        |
 | --------------- | -----------| ------------------------------ |
-| postal_code     | string     | null: false                    |
+| postal_code     | string     | null: false, default: ""       |
 | exhibitor_area  | integer    | null: false                    |
-| city            | string     | null: false                    |
-| address         | string     | null: false                    |
+| city            | string     | null: false, default: ""       |
+| address         | string     | null: false, default: ""       |
 | building_name   | string     |                                |
-| phone_number    | string     | null: false                    |
+| phone_number    | string     | null: false, default: ""       |
 | order           | references | null: false, foreign_key: true |
 
 ### association

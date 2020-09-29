@@ -16,7 +16,6 @@ class Item < ApplicationRecord
     validates :category_id
     validates :condition_id
     validates :delivary_fee_id
-    validates :exhibitor_area_id
     validates :delivary_day_id
   end
 
@@ -24,7 +23,6 @@ class Item < ApplicationRecord
   validates :category_id, numericality: { message: "を選択してください" }
   validates :condition_id, numericality: { message: "を選択してください" }
   validates :delivary_fee_id, numericality: { message: "を選択してください" }
-  validates :exhibitor_area_id, numericality: { message: "を選択してください" }
   validates :delivary_day_id, numericality: { message: "を選択してください" }
   end
 
