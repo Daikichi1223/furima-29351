@@ -3,7 +3,7 @@ before_action :authenticate_user!
 before_action :set_item, only: [:index, :create]
 
   def index
-    if current_user.id == @item.user_id
+    if current_user.id == @item.user_id || item.order
       redirect_to root_path
     end
 
