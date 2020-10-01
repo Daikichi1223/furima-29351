@@ -84,6 +84,12 @@ describe  OrderAddress do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("電話番号は不正な値です")
       end
+      it "phone_numberにハイフンが含まれていれば購入できない" do
+        @order_address.phone_number = "090-1234-5678"
+        sleep(1)
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("電話番号は不正な値です")
+      end
     end
   end
 end

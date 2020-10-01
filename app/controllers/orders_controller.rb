@@ -3,7 +3,7 @@ before_action :authenticate_user!
 before_action :set_item, only: [:index, :create]
 
   def index
-    if current_user.id == @item.user_id || item.order
+    if current_user.id == @item.user_id || @item.order
       redirect_to root_path
     end
 
@@ -25,12 +25,10 @@ before_action :set_item, only: [:index, :create]
   private
 
   def order_params
-    item = Item.find(params[:item_id])
-    params.require(:order_address).permit(:postal_code, :exhibitor_area_id, :city, :address, :building_name, :phone_number, :token).merge(user_id: current_user.id, item_id: item.id)
+    params.require(:order_address).permit(:postal_code, :exhibitor_area_id, :city, :address, :building_name, :phone_number, :token).merge(user_id: current_user.id, item_id: @item.id)
   end
 
   def pay_item
-    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
