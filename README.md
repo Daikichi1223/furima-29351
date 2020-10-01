@@ -15,9 +15,9 @@
 
 ### association
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
-## purchases テーブル
+## orders テーブル
 | Column | Type        | Options                        |
 | ------ | ----------- | ------------------------------ |
 | item   | references  | null: false, foreign_key: true |
@@ -42,20 +42,20 @@
 | user           | references | null: false, foreign_key: true |
 
 ### association
-- has_one :purchase
+- has_one :order
 - belongs_to :user
 
 
 ## addresses テーブル
-| Column        | Type       | Options                        |
-| ------------- | -----------| ------------------------------ |
-| postal_code   | string     | null: false                    |
-| state         | integer    | null: false                    |
-| city          | string     | null: false                    |
-| address       | string     | null: false                    |
-| building_name | string     |                                |
-| phone_number  | string     | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | -----------| ------------------------------ |
+| postal_code     | string     | null: false, default: ""       |
+| exhibitor_area  | integer    | null: false                    |
+| city            | string     | null: false, default: ""       |
+| address         | string     | null: false, default: ""       |
+| building_name   | string     |                                |
+| phone_number    | string     | null: false, default: ""       |
+| order           | references | null: false, foreign_key: true |
 
 ### association
-- belongs_to :purchase
+- belongs_to :order
