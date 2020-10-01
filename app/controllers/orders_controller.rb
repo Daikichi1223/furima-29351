@@ -19,7 +19,7 @@ before_action :authenticate_user!
       @orderaddress.save
       return redirect_to root_path
     else
-      redirect_to item_orders_path
+      render "index"
     end
   end
 
