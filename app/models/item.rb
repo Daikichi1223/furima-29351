@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivary_fee
   belongs_to_active_hash :exhibitor_area
   belongs_to_active_hash :delivary_day
-  has_one :purchase
+  has_one :order
   belongs_to :user
   has_one_attached :image
 

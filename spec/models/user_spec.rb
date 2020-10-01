@@ -8,6 +8,7 @@ describe User do
     context '新規登録がうまくいく時' do
       it "nicknameとemail、password、last_name、first_name、last_name_ruby、first_name_rubyとbirthdayが存在すれば登録できる" do
         expect(@user).to be_valid
+        binding.pry
       end
     end
 
