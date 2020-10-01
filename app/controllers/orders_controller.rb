@@ -40,5 +40,4 @@ before_action :set_item, only: [:index, :create]
   def set_item
     @item = Item.find(params[:item_id])
   end
-
 end
